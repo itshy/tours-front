@@ -1,0 +1,9 @@
+{
+    "extends": "@atomix/eslint-config",
+    "rules": {
+        "linebreak-style": [
+          "error",
+          "windows"
+        ]
+      }
+}
