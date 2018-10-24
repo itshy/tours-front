@@ -1,0 +1,13 @@
+/* LOGO */
+
+.logo {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.logo__inner {
+  display: block;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+}
