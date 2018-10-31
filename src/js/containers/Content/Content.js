@@ -6,7 +6,8 @@ import ContentElement from './../../components/ContentElement/ContentElement'
 class Content extends Component {
   handleClick = () => {
     console.log("content")
-  } 
+  }
+  
   renderElements() {
     const { tours } = this.props
 

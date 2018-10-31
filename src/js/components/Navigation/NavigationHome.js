@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import { addTour, sortTours } from '../../actions/index'
+import { getUserAccount, addNewTourDB, getToursDB } from '../../../api'
 
 class NavigationHome extends Component {
 
@@ -50,9 +53,41 @@ class NavigationHome extends Component {
     const randomPrice = (Math.floor(Math.random() * (10000 - 0 + 1)) + 0)
     console.log('Добавлен новый тур с ценой =', randomPrice)
     addTour(randomPrice)
+
+    const tours = {
+      name: 'Spain',
+      about: 'Всё самое интересное в историях и легендах Готического квартала Барселоны. За полтора часа вы окунётесь в Средневековье; пройдёте по узким улочкам, которые основали ещё римляне.',
+      price: 2000,
+      rate: 5,
+      active: true,
+    }
+    addNewTourDB(tours)
+
+    getUserAccount()
+      .then(json=>{
+          console.log(json.data)
+      })
+  }
+
+  getTours = () => {
+    getToursDB()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps, 'wiilrec', this.props)
+  }
+  
+  componentDidMount(){
+    console.log('did')
+  }
+
+  componentWillMount(){
+    console.log('will')
   }
 
   render() {
+    console.log('render')
+
     return (
       <div className="navigation__home">
         <a className="btn-floating btn-large waves-effect waves-light red" onClick={this.sortUpTours}><i className="large material-icons">arrow_drop_up</i></a>
@@ -78,6 +113,7 @@ class NavigationHome extends Component {
         </ul>
         <a className="btn dropdown-trigger" href="#!" data-target="dropdown3">Rating<i className="material-icons right">star</i></a>
         <a className="btn-floating btn-large waves-effect waves-light red" onClick={this.addNewTour}><i className="material-icons">add</i></a>
+        <Link to='/n' className="btn-floating btn-large waves-effect waves-light red" onClick={this.getTours}>add</Link>
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
 import { Provider } from 'react-redux'
+import { HashRouter as Router } from 'react-router-dom'
 import store from './js/store/store'
 import App from './js/App'
 import './js/jquery.js'
@@ -12,9 +12,11 @@ import './css/input.css'
 import './css/materialize.css'
 
 
-ReactDOM.render(
+ReactDOM.render (
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root'),
 )
