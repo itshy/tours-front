@@ -16,3 +16,8 @@ export const sortTours = (tours) => ({
   type: "sortTours",
   tours: tours,
 })
+
+export const getToursFromDB = (tours) => ({
+  type: "getToursFromDB",
+  tours: tours,
+})

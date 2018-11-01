@@ -1,24 +1,12 @@
 import React, { Component } from 'react'
 
-import img1 from '../../../img/sample-1.jpg'
-
-
-export default class ContentElement extends Component {
-  onClick = () => {
-    const {tours, onClick} = this.props
-    console.log(tours.id, 'content-element')
-
-    onClick(tours.id)
-  }
-
+export default class PageElement extends Component {
   render() {
-    const {tours} = this.props
-
     return (
       <div className="col l4 s12 m7 content-element__animation">
         <div className="card">
           <div className="card-image">
-            <img src={tours.img} />
+            <img src={img1} />
             <span className="card-title">{ tours.name ? tours.name : "ГОРОД НЕ ПОЛУЧЕН" }</span>
           </div>
           <div className="card-content">

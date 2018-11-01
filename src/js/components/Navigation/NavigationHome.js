@@ -55,11 +55,12 @@ class NavigationHome extends Component {
     addTour(randomPrice)
 
     const tours = {
-      name: 'Spain',
-      about: 'Всё самое интересное в историях и легендах Готического квартала Барселоны. За полтора часа вы окунётесь в Средневековье; пройдёте по узким улочкам, которые основали ещё римляне.',
-      price: 2000,
-      rate: 5,
+      name: 'Italy',
+      about: 'Этот известный туристический комплекс состоит из трех комфортабельных зданий и со всех сторон окружен пышной зеленью.',
+      price: 1400,
+      rate: 4,
       active: true,
+      img: 'https://bit.ly/2Ojmg54',
     }
     addNewTourDB(tours)
 
@@ -75,14 +76,6 @@ class NavigationHome extends Component {
 
   componentWillReceiveProps(nextProps) {
     console.log(nextProps, 'wiilrec', this.props)
-  }
-  
-  componentDidMount(){
-    console.log('did')
-  }
-
-  componentWillMount(){
-    console.log('will')
   }
 
   render() {
@@ -113,7 +106,8 @@ class NavigationHome extends Component {
         </ul>
         <a className="btn dropdown-trigger" href="#!" data-target="dropdown3">Rating<i className="material-icons right">star</i></a>
         <a className="btn-floating btn-large waves-effect waves-light red" onClick={this.addNewTour}><i className="material-icons">add</i></a>
-        <Link to='/n' className="btn-floating btn-large waves-effect waves-light red" onClick={this.getTours}>add</Link>
+        <a to='/n' className="btn-floating btn-large waves-effect waves-light red" onClick={this.getTours}>console</a>
+        <Link to='/n' className="btn-floating btn-large waves-effect waves-light red">link</Link>
       </div>
     )
   }

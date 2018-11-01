@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import ContentElement from './../../components/ContentElement/ContentElement'
+import { getToursDB } from '../../../api'
+import { getToursFromDB } from '../../actions'
 
 
 class Content extends Component {
   handleClick = () => {
     console.log("content")
+  }
+
+  componentWillMount() {
+    const { getToursFromDB } = this.props
+
+    getToursDB()
+      .then((response) => {
+        console.log(response.data)
+        getToursFromDB(response.data)
+      })
   }
   
   renderElements() {
@@ -26,6 +39,7 @@ class Content extends Component {
       })
     )
   }
+
   render() {
     // const tours = this.props.tours
     // const toursRender = tours.map((tours, index) => (<ContentElement key={index} tours={tours} />))
@@ -41,4 +55,8 @@ const mapStateToProps = (state) => ({
   tours: state.tours
 })
 
-export default connect(mapStateToProps)(Content)
+const mapDispatchToProps = (dispatch) => ({
+  getToursFromDB: (tours) => dispatch(getToursFromDB(tours)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Content)

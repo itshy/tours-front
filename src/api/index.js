@@ -11,8 +11,8 @@ export const addNewTourDB = (tours) => {
 export const getToursDB = () => {
   return (
     axios.get('http://localhost:3333/getTours')
-      .then((response) => {
-        console.log(response.data)
-      })
+      // .then((response) => {
+      //   return response.data
+      // })
   )
 }

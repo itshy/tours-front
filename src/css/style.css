@@ -38,6 +38,12 @@
   animation: cont-el-anim 0.4s;
 }
 
+.card-content p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @keyframes cont-el-anim {
   from {
     opacity: 0;
