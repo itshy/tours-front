@@ -21,3 +21,13 @@ export const getToursFromDB = (tours) => ({
   type: "getToursFromDB",
   tours: tours,
 })
+
+export const updateTourPage = (tour) => ({
+  type: "GET_ONE_TOUR",
+  tour: tour,
+})
+
+export const loadMoreTours = (tours) => ({
+  type: "LOAD_MORE_TOURS",
+  newTours: tours,
+})

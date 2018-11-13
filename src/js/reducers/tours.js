@@ -77,6 +77,11 @@ export const tours = (state = initialState, action) => {
       }
       return toursBufDB
 
+    case 'LOAD_MORE_TOURS':
+      const concatData = state.concat(action.newTours)
+      
+      return concatData
+
     default:
       return state
   }

@@ -31,11 +31,9 @@ class Content extends Component {
     // Проверка active тура - чтобы исключить неактивные, например при фильтрации
     return (
       tours.map((tours, index) => {
-        if (tours.active) {
-          return (
-            <ContentElement onClick={this.handleClick} key={index} tours={tours} />
-          )
-        }
+        return (
+          <ContentElement onClick={this.handleClick} key={index} tours={tours} updateTours={() => this.componentWillMount()} />
+        )
       })
     )
   }

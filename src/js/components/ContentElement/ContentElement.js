@@ -1,14 +1,37 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-import img1 from '../../../img/sample-1.jpg'
+import { makeOrder } from '../../../api'
 
 
 export default class ContentElement extends Component {
   onClick = () => {
-    const {tours, onClick} = this.props
-    console.log(tours.id, 'content-element')
+    const { tours, updateTours } = this.props
+    if (tours.active) {
+      var toursActive = false
+    } else {
+      var toursActive = true
+    }
 
-    onClick(tours.id)
+    makeOrder({
+      tourID: tours.id,
+      active: toursActive,
+    })
+      .then(updateTours)
+  }
+
+  orderElement = () => {
+    const { tours } = this.props
+    
+    if (tours.active) {
+      return {
+        __html: 'Забронировать'
+      }
+    } else {
+      return {
+        __html: 'Снять бронь'
+      }
+    }
   }
 
   render() {
@@ -26,8 +49,8 @@ export default class ContentElement extends Component {
           </div>
           <div className="card-action">
             {/* <a href="#">Поехать в { this.props.country ? this.props.country : "ГОРОД НЕ ПОЛУЧЕН" }</a> */}
-            <a href="#">Поехать - { tours.price ? tours.price : "Цена не получена" }</a>
-            <a className="waves-effect waves-light btn" onClick={this.onClick}>Скрыть</a>
+            <Link to={`/tour/${tours.id}`}>Поехать - { tours.price ? tours.price : "Цена не получена" }</Link>
+            <a className="waves-effect waves-light btn" onClick={this.onClick} dangerouslySetInnerHTML={this.orderElement()}></a>
           </div>
         </div>
       </div>

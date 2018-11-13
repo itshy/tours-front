@@ -3,8 +3,25 @@
 .input-home {
   width: 30%;
   margin: 0 auto;
+  position: relative;
 }
-
 .input__home {
   width: 100%;
+}
+.input__hint-block {
+  position: absolute;
+  width: 100%;
+  border-radius: 2px;
+  background-color: white;
+  z-index: 10;
+  transition: all 0.4s;
+}
+.input__hint-wrapper {
+  padding: 0.5em 1em;
+}
+.input__hint {
+  width: 100%;
+  text-decoration: none;
+  color: initial;
+  cursor: pointer;
 }

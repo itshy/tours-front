@@ -43,6 +43,38 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.card-content-open p {
+  white-space: initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.one-card-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: initial !important;
+  left: initial !important;
+  right: initial !important;
+}
+.card-width {
+  width: 100%;
+}
+.comment-card {
+  left: initial !important;
+  right: initial !important;
+  margin-left: initial !important;
+  margin: 1em auto !important;
+  float: initial !important;
+  width: 100% !important;
+}
+.input__comment {
+  margin-top: 2em !important;
+  width: 30% !important;
+}
+.comments-block {
+  width: 30%;
+}
 
 @keyframes cont-el-anim {
   from {
